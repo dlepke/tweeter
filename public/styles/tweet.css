@@ -1,0 +1,48 @@
+.tweet {
+  border-radius: 10px;
+  background-color: #eee;
+  margin: 2em;
+  border: 1px solid lightgrey;
+  overflow: hidden;
+}
+
+
+
+.tweet-header {
+  background-color: #eee;
+  height: 70px;
+  border: 10px;
+  border-radius: 10px;
+}
+.tweet-header img {
+  padding: 10px;
+  float: left;
+}
+.handle {
+  float: right;
+  padding-right: 10px;
+  padding-top: 20px;
+  font-size: small;
+}
+.username {
+  float: left;
+  padding-top: 10px;
+  border-bottom: none;
+}
+
+
+
+.tweet p {
+  padding: 10px;
+  margin: 0px;
+  background-color: white;
+}
+
+
+
+
+.tweet-footer p {
+  border-top: 1px solid lightgrey;
+  background: white;
+  font-size: small;
+}
