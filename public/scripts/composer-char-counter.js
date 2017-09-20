@@ -6,9 +6,9 @@ $(document).ready(function() {
     $(this).siblings("span.counter")[0].innerHTML = remaining;
     let counter = $(".counter");
     if (remaining < 0) {
-      counter.removeClass("black").addClass("red");
+      counter.removeClass("color-normal").addClass("color-warning");
     } else {
-      counter.removeClass("red").addClass("black");
+      counter.removeClass("color-warning").addClass("color-normal");
     }
   })
 });
