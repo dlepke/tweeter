@@ -5,6 +5,7 @@
   margin: 2em;
   border: 1px solid lightgrey;
   margin-bottom: 0px;
+  display: none;
 }
 
 .counter {

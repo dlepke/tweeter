@@ -5,6 +5,46 @@
  */
 
 $(function() {
+  function createTweetElement(tweetObject) {
+    var tweetInProgress = $("<article>").addClass("tweet");
+
+    var header = $("<header>").addClass("tweet-header").appendTo(tweetInProgress);
+    $("<img>").attr('src', tweetObject.user.avatars.small).appendTo(header);
+    $("<h2>").addClass("username").text(tweetObject.user.name).appendTo(header);
+    $("<div>").addClass("handle").text(tweetObject.user.handle).appendTo(header);
+
+    var mainText = $("<p>").text(tweetObject.content.text).appendTo(tweetInProgress);
+
+    var footer = $("<footer>").addClass("tweet-footer").appendTo(tweetInProgress);
+    $("<p>").text(tweetObject.created_at).appendTo(footer);
+    var actions = $("<div>").addClass("tweet-actions").appendTo(footer);
+    ['flag', 'retweet', 'heart-o'].forEach(function(icon) {
+      var link = $("<a>").addClass("tweet-action").attr('href', '#').appendTo(actions);
+      $("<i>").addClass("fa fa-" + icon).attr('aria-hidden', true).appendTo(link);
+    });
+
+    return tweetInProgress;
+  }
+
+  function renderTweets(arrayOfTweets) {
+    $('#tweets-container').empty();
+    for (var tweet in arrayOfTweets) {
+      var $tweet = createTweetElement(arrayOfTweets[tweet])
+      $('#tweets-container').prepend($tweet);
+    }
+  }
+
+  function loadTweets() {
+    $.getJSON('/tweets', function(response) {
+      renderTweets(response);
+    })
+  };
+
+  $(".compose").on("click", function() {
+    event.preventDefault();
+    $(".new-tweet").slideToggle();
+    $(".tweet-text").focus();
+  })
 
   $(".submit").on("click", function() {
     event.preventDefault();
@@ -23,53 +63,14 @@ $(function() {
         },
         success: function() {
           console.log("successful post!");
-          // loadTweets();
+          loadTweets();
           $(".tweet-text").val('');
         }
       })
     }
   });
 
-  function loadTweets() {
-    $.getJSON('/tweets', function(response) {
-      renderTweets(response);
-    })
-  };
-
   loadTweets();
-
-  function createTweetElement(tweetObject) {
-    var tweetInProgress = $("<article>").addClass("tweet");
-
-    var header = $("<header>").addClass("tweet-header").appendTo(tweetInProgress);
-    $("<img>").attr('src', tweetObject.user.avatars.small).appendTo(header);
-    $("<h2>").addClass("username").text(tweetObject.user.name).appendTo(header);
-    $("<div>").addClass("handle").text(tweetObject.user.handle).appendTo(header);
-
-    var mainText = $("<p>").text(tweetObject.content.text).appendTo(tweetInProgress);
-
-    var footer = $("<footer>").addClass("tweet-footer").appendTo(tweetInProgress);
-    $("<p>").text(tweetObject.created_at).appendTo(footer);
-    var actions = $("<div>").addClass("tweet-actions").appendTo(footer);
-    var actionFlag = $("<a>").addClass("tweet-action").attr('href', '#').appendTo(actions);
-    $("<i>").addClass("fa fa-flag").attr('aria-hidden', true).appendTo(actionFlag);
-    var actionRetweet = $("<a>").addClass("tweet-action").attr('href', '#').appendTo(actions);
-    $("<i>").addClass("fa fa-retweet").attr('aria-hidden', true).appendTo(actionRetweet);
-    var actionHeart = $("<a>").addClass("tweet-action").attr('href', '#').appendTo(actions);
-    $("<i>").addClass("fa fa-heart-o").attr('aria-hidden', true).appendTo(actionHeart);
-
-    return tweetInProgress;
-  }
-
-  function renderTweets(arrayOfTweets) {
-    for (var tweet in arrayOfTweets) {
-      var $tweet = createTweetElement(arrayOfTweets[tweet])
-      $('#tweets-container').append($tweet);
-    }
-  }
-
-
-// renderTweets(data);
 
 });
 
