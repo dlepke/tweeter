@@ -1,9 +1,9 @@
 .tweet {
-  border-radius: 10px;
-  background-color: #eee;
+  border-radius: 5px;
   margin: 2em;
-  border: 1px solid lightgrey;
+  border: 1px solid darkgrey;
   overflow: hidden;
+  opacity: 0.6;
 }
 
 
@@ -12,7 +12,7 @@
   background-color: #eee;
   height: 70px;
   border: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .tweet-header img {
   padding: 10px;
@@ -40,9 +40,28 @@
 
 
 
-
+.tweet-footer {
+  height: 25px;
+  align-content: center;
+}
 .tweet-footer p {
-  border-top: 1px solid lightgrey;
   background: white;
   font-size: small;
+  display: inline;
+  padding: 3px;
+  margin-left: 8px;
 }
+.tweet-actions {
+  float: right;
+  visibility: hidden;
+  padding: 3px;
+  margin-right: 8px;
+}
+.tweet-action {
+  color: #00a087;
+  margin-left: 8px;
+
+
+
+
+

@@ -1,0 +1,12 @@
+.tweet:hover {
+  opacity: 0.9;
+}
+
+.tweet-header:hover {
+  background-color: #eee;
+  border-color: #0e0e0e;
+}
+
+.tweet:hover .tweet-actions {
+  visibility: visible;
+}
