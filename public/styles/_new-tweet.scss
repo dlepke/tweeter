@@ -1,6 +1,8 @@
+@import 'reusables';
+
 .new-tweet {
   border-radius: 10px;
-  background-color: #eee;
+  background-color: $colorscheme-grey;
   padding: 10px;
   margin: 2em;
   border: 1px solid lightgrey;

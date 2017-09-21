@@ -1,0 +1,14 @@
+$fontcolor-normal: black;
+$fontcolor-warning: red;
+$fontcolor-header: #e8fdff;
+
+$colorscheme-green: #00a087;
+$colorscheme-grey: #eee;
+$colorscheme-white: white;
+
+$font-site: "Roboto Condensed", sans-serif;
+
+
+//using scss to create reusable variables that store the site's themes
+//(background colors, font colors, font)
+//border colors are typically different in each spot, so did not store as variable

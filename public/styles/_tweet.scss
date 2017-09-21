@@ -1,3 +1,5 @@
+@import 'reusables';
+
 .tweet {
   border-radius: 5px;
   margin: 2em;
@@ -9,7 +11,7 @@
 
 
 .tweet-header {
-  background-color: #eee;
+  background-color: $colorscheme-grey;
   height: 70px;
   border: 10px;
   border-radius: 5px;
@@ -35,7 +37,7 @@
 .tweet p {
   padding: 10px;
   margin: 0px;
-  background-color: white;
+  background-color: $colorscheme-white;
 }
 
 
@@ -58,7 +60,7 @@
   margin-right: 8px;
 }
 .tweet-action {
-  color: #00a087;
+  color: $colorscheme-green;
   margin-left: 8px;
 }
 
