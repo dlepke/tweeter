@@ -19,3 +19,8 @@ This repository is the starter code for the project: Students will fork and clon
 - Body parser
 - Chance
 - MD5
+
+## Screenshots
+
+!["Screenshot with Compose box open"](https://github.com/dlepke/tweeter/blob/master/docs/with-compose-box.png)
+!["Screenshot with Compose box hidden"](https://github.com/dlepke/tweeter/blob/master/docs/without-compose-box.png)
