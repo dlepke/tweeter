@@ -21,7 +21,9 @@ $(function() {
 
     var footer = $("<footer>").addClass("tweet-footer").appendTo(tweetInProgress);
     $("<p>").text(formattedTimestamp).appendTo(footer);
+
     var actions = $("<div>").addClass("tweet-actions").appendTo(footer);
+
     ['flag', 'retweet', 'heart-o'].forEach(function(icon) {
       var link = $("<a>").addClass("tweet-action").attr('href', '#').appendTo(actions);
       $("<i>").addClass("fa fa-" + icon).attr('aria-hidden', true).appendTo(link);
