@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
 $(function() {
   function createTweetElement(tweetObject) {
     var tweetInProgress = $("<article>").addClass("tweet");
@@ -15,8 +16,11 @@ $(function() {
 
     var mainText = $("<p>").text(tweetObject.content.text).appendTo(tweetInProgress);
 
+    var formattedTimestamp = moment(tweetObject.created_at).fromNow();
+    console.log(formattedTimestamp);
+
     var footer = $("<footer>").addClass("tweet-footer").appendTo(tweetInProgress);
-    $("<p>").text(tweetObject.created_at).appendTo(footer);
+    $("<p>").text(formattedTimestamp).appendTo(footer);
     var actions = $("<div>").addClass("tweet-actions").appendTo(footer);
     ['flag', 'retweet', 'heart-o'].forEach(function(icon) {
       var link = $("<a>").addClass("tweet-action").attr('href', '#').appendTo(actions);
